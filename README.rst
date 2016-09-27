@@ -2,6 +2,10 @@
 attrs_sqlalchemy
 ================
 
+.. image:: https://travis-ci.org/GoodRx/attrs_sqlalchemy.svg?branch=master
+   :target: https://travis-ci.org/GoodRx/attrs_sqlalchemy
+   :alt: CI status
+
 Use `attrs <https://attrs.readthedocs.io>`_ to add ``__repr__``, ``__eq__``,
 ``__cmp__``, and ``__hash__`` methods according to the fields on a SQLAlchemy
 model class.
