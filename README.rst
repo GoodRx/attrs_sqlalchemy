@@ -2,6 +2,9 @@
 attrs_sqlalchemy
 ================
 
+.. image:: https://img.shields.io/pypi/v/attrs_sqlalchemy.svg
+   :target: https://pypi.python.org/pypi/attrs_sqlalchemy
+
 .. image:: https://travis-ci.org/GoodRx/attrs_sqlalchemy.svg?branch=master
    :target: https://travis-ci.org/GoodRx/attrs_sqlalchemy
    :alt: CI status
