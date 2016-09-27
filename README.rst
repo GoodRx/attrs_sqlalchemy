@@ -13,18 +13,23 @@ Use the amazing `attrs <https://attrs.readthedocs.io>`_ library to add
 ``__repr__``, ``__eq__``, ``__cmp__``, and ``__hash__`` methods according to
 the fields on a SQLAlchemy model class.
 
+
 Example
 -------
 
 .. code-block:: python
 
    from attrs_sqlalchemy import attrs_sqlalchemy
+   import sqlalchemy as sa
+   from sqlalchemy.ext.declarative import declarative_base
+
+   Base = declarative_base()
 
    @attrs_sqlalchemy
    class MyModel(Base):
        __tablename__ = 'mymodel'
 
-       id = sa.Column(Integer, primary_key=True)
+       id = sa.Column(sa.Integer, primary_key=True)
        text = sa.Column(sa.String)
 
    instance = MyModel(id=1, text='hello')
@@ -34,6 +39,13 @@ Example
    assert instance == same_data
    assert instance != same_pk
    assert repr(instance) == "MyModel(id=1, text='hello')"
+
+Installation
+------------
+
+.. code-block:: bash
+
+   $ pip install attrs_sqlalchemy
 
 Project Information
 ===================
