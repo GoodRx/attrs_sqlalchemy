@@ -6,7 +6,7 @@ model class.
 import attr
 from sqlalchemy import inspect
 
-__version__ = '0.0.0.dev0'
+__version__ = '0.1.0'
 
 __title__ = 'attrs_sqlalchemy'
 __description__ = 'Add dunder-methods to SQLAlchemy models with attrs'
