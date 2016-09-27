@@ -2,13 +2,19 @@
 attrs_sqlalchemy
 ================
 
+.. image:: https://img.shields.io/pypi/v/attrs_sqlalchemy.svg
+   :target: https://pypi.python.org/pypi/attrs_sqlalchemy
+
 .. image:: https://travis-ci.org/GoodRx/attrs_sqlalchemy.svg?branch=master
    :target: https://travis-ci.org/GoodRx/attrs_sqlalchemy
    :alt: CI status
 
-Use `attrs <https://attrs.readthedocs.io>`_ to add ``__repr__``, ``__eq__``,
-``__cmp__``, and ``__hash__`` methods according to the fields on a SQLAlchemy
-model class.
+Use the amazing `attrs <https://attrs.readthedocs.io>`_ library to add
+``__repr__``, ``__eq__``, ``__cmp__``, and ``__hash__`` methods according to
+the fields on a SQLAlchemy model class.
+
+Example
+-------
 
 .. code-block:: python
 
@@ -28,3 +34,11 @@ model class.
    assert instance == same_data
    assert instance != same_pk
    assert repr(instance) == "MyModel(id=1, text='hello')"
+
+Project Information
+===================
+
+``attrs_sqlalchemy`` is released under the `MIT
+<http://choosealicense.com/licenses/mit/>`_ license, its code lives on `GitHub
+<https://github.com/GoodRx/attrs_sqlalchemy>`_, and the latest release on `PyPI
+<https://pypi.org/project/attrs_sqlalchemy/>`_.
