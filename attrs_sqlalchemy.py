@@ -1,5 +1,27 @@
+"""
+Use `attrs <https://attrs.readthedocs.io>`_ to add ``__repr__``, ``__eq__``,
+``__cmp__``, and ``__hash__`` methods according to the fields on a SQLAlchemy
+model class.
+"""
 import attr
 from sqlalchemy import inspect
+
+__version__ = '0.0.0.dev0'
+
+__title__ = 'attrs_sqlalchemy'
+__description__ = 'Add dunder-methods to SQLAlchemy models with attrs'
+__uri__ = 'https://github.com/GoodRx/attrs_sqlalchemy'
+
+__author__ = 'Andy Freeland'
+__email__ = 'andy@goodrx.com'
+
+__license__ = 'MIT'
+__copyright__ = 'Copyright (c) 2016 GoodRx'
+
+
+__all__ = [
+    'attrs_sqlalchemy',
+]
 
 
 def attrs_sqlalchemy(maybe_cls=None):

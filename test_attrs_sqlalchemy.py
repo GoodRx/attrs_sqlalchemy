@@ -3,7 +3,7 @@ import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.hybrid import hybrid_property
 
-from pharmacy.util.attrs import attrs_sqlalchemy
+from attrs_sqlalchemy import attrs_sqlalchemy
 
 
 class TestAttrsSqlalchemy:
