@@ -1,8 +1,0 @@
-[run]
-branch = True
-source =
-    attrs_sqlalchemy,
-    test_attrs_sqlalchemy
-
-[report]
-show_missing = True
