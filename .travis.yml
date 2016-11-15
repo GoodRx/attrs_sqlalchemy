@@ -8,7 +8,7 @@ matrix:
   include:
     - python: 2.7
       env: TOXENV=py27
-    - python: pypy
+    - python: pypy-5.4.1
       env: TOXENV=pypy
     - python: 3.5
       env: TOXENV=py35
