@@ -26,9 +26,24 @@ __all__ = [
 
 def attrs_sqlalchemy(maybe_cls=None):
     """
-    A class decorator that adds ``__repr__``, ``__eq__``, ``__cmp__``, and
-    ``__hash__`` methods according to the fields defined on the SQLAlchemy
-    model class.
+    A class decorator that adds ``__repr__``, ``__eq__``,  and ``__cmp__``,
+    methods according to the fields defined on the SQLAlchemy model class.
+
+    ``__hash__`` will always fall back to id-based hashing from
+    :class:`object`.
+
+    .. versionchanged:: 0.2.0
+
+       :func:`attr.s` is applied with ``hash=False``, using id-based hashing
+       instead of value-based hashing.
+
+       attrs 17.1.0 changed the default for ``hash`` to ``None``, which makes
+       objects unhashable.
+
+       We set ``hash=False`` so that we can continue to use objects as keys in
+       dictionaries, but without attempting to hash by value.
+
+       http://www.attrs.org/en/stable/changelog.html
     """
     def wrap(cls):
         these = {
@@ -53,7 +68,7 @@ def attrs_sqlalchemy(maybe_cls=None):
             #   which won't be ready yet.
             for name in inspect(cls).columns.keys()
         }
-        return attr.s(cls, these=these, init=False)
+        return attr.s(cls, these=these, init=False, hash=False)
 
     # `maybe_cls` depends on the usage of the decorator. It's a class if it's
     # used as `@attrs_sqlalchemy` but `None` if it's used as
