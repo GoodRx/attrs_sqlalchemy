@@ -68,7 +68,13 @@ def attrs_sqlalchemy(maybe_cls=None):
             #   which won't be ready yet.
             for name in inspect(cls).columns.keys()
         }
-        return attr.s(cls, these=these, init=False, hash=False)
+        those = {}
+        for attribute in these:
+            those[attribute] = cls.__dict__[attribute]
+        s = attr.s(these=these, init=False, hash=False)(cls)
+        for attribute in those:
+            setattr(cls, attribute, those[attribute])
+        return s
 
     # `maybe_cls` depends on the usage of the decorator. It's a class if it's
     # used as `@attrs_sqlalchemy` but `None` if it's used as
