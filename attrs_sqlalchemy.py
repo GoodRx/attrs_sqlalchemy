@@ -3,6 +3,8 @@ Use `attrs <https://attrs.readthedocs.io>`_ to add ``__repr__``, ``__eq__``,
 ``__cmp__``, and ``__hash__`` methods according to the fields on a SQLAlchemy
 model class.
 """
+import warnings
+
 import attr
 from sqlalchemy import inspect
 
@@ -31,6 +33,8 @@ def attrs_sqlalchemy(maybe_cls=None):
     model class.
     """
     def wrap(cls):
+        warnings.warn(UserWarning('attrs_sqlalchemy is deprecated'))
+
         these = {
             name: attr.ib()
             # `__mapper__.columns` is a dictionary mapping field names on the

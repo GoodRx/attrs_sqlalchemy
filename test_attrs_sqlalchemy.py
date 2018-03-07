@@ -8,6 +8,14 @@ from attrs_sqlalchemy import attrs_sqlalchemy
 
 class TestAttrsSqlalchemy:
 
+    def test_deprecation(self):
+        with pytest.warns(UserWarning, match='attrs_sqlalchemy is deprecated'):
+            @attrs_sqlalchemy
+            class MyModel(declarative_base()):
+                __tablename__ = 'mymodel'
+
+                id = sa.Column(sa.Integer, primary_key=True)
+
     @pytest.mark.parametrize('decorator', [attrs_sqlalchemy, attrs_sqlalchemy()])
     def test_attrs_sqlalchemy(self, decorator):
         """

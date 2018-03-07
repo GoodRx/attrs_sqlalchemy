@@ -2,6 +2,20 @@
 attrs_sqlalchemy
 ================
 
+Deprecation
+-----------
+
+**This project is deprecated!** SQLAlchemy already manages ``__eq__`` and
+``__hash__`` based on identity within the session. This project is incompatible
+with attrs 17.1.0+ or recent versions of SQLAlchemy.
+
+If you're just looking for a nice ``__repr__`` for your SQLAlchemy models,
+consider `sqlalchemy-repr <https://pypi.org/project/sqlalchemy-repr/>`_, `repr
+<https://pypi.org/project/repr/>`_, or other packages.
+
+Legacy documentation
+--------------------
+
 .. image:: https://img.shields.io/pypi/v/attrs_sqlalchemy.svg
    :target: https://pypi.python.org/pypi/attrs_sqlalchemy
 
