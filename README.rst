@@ -24,8 +24,10 @@ Legacy documentation
    :alt: CI status
 
 Use the amazing `attrs <https://attrs.readthedocs.io>`_ library to add
-``__repr__``, ``__eq__``, ``__cmp__``, and ``__hash__`` methods according to
-the fields on a SQLAlchemy model class.
+``__repr__``, ``__eq__``, and ``__cmp__`` methods according to the fields on a
+SQLAlchemy model class.
+
+``__hash__`` will always fall back to id-based hashing from ``object``.
 
 
 Example
@@ -60,6 +62,26 @@ Installation
 .. code-block:: bash
 
    $ pip install attrs_sqlalchemy
+
+Changelog
+=========
+
+0.2.0 (UNRELEASED)
+------------------
+
+- **Backward-incompatible**: Apply ``attr.s`` with ``hash=False``, using
+  id-based hashing instead of value-based hashing.
+
+  attrs 17.1.0 changed the default for ``hash`` to ``None``, which makes
+  objects unhashable. We set ``hash=False`` so that we can continue to use
+  objects as keys in dictionaries, but without attempting to hash by value.
+
+  http://www.attrs.org/en/stable/changelog.html
+
+0.1.0 (2016-09-24)
+------------------
+
+- Initial release
 
 Project Information
 ===================

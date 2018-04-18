@@ -45,9 +45,10 @@ class TestAttrsSqlalchemy:
         # Instances should have a repr containing their keys and type
         assert repr(instance) == "MyModel(id=1, text='hello')"
 
-        # Instances should be hashable by their fields and used in a dict
+        # Instances should be hashable by ID, not fields
         d = {instance: True}
-        assert d.get(same_data) == d[instance]
+        assert instance in d
+        assert d.get(same_data) is None
         assert d.get(same_pk) is None
 
     def test_field_name_not_column_name(self):
